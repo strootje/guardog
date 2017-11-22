@@ -1,0 +1,16 @@
+# setup sources
+set(TARGET_SOURCES
+	${DIR_SRC}/ArgumentException.cpp
+	${DIR_SRC}/ArgumentIncorrectTypeException.cpp
+	${DIR_SRC}/ArgumentNullException.cpp
+	${DIR_SRC}/Exception.cpp)
+
+add_library(${TARGET_NAME} ${TARGET_SOURCES})
+target_include_directories(${TARGET_NAME} PRIVATE ${DIR_INCLUDE})
+
+install(TARGETS ${TARGET_NAME}
+	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+	LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+	ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(DIRECTORY ${DIR_INCLUDE}/
+	DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME} COMPONENT Devel)
