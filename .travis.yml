@@ -29,6 +29,5 @@ install:
   - ./.travis/install.sh
 
 script:
-  - chmod +x .travis/cmake.sh .travis/run.sh
-  - ./.travis/cmake.sh
+  - chmod +x .travis/run.sh
   - ./.travis/run.sh
