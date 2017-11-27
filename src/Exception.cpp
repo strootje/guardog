@@ -12,6 +12,11 @@ namespace Guardog
 
 	const char* Exception::what() const
 	{
-		return GetMessage().c_str();
+		const auto& message = GetMessage();
+
+		char* copied = new char[message.length() + 1];
+		std::strcpy(copied, message.c_str());
+
+		return copied;
 	}
 }

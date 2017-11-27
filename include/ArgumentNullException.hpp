@@ -1,14 +1,14 @@
-#ifndef __GUARDOG_ARGUMENTNULLEXCEPTION__H__
-#define __GUARDOG_ARGUMENTNULLEXCEPTION__H__
+#ifndef __GUARDOG__ARGUMENTNULLEXCEPTION__H__
+#define __GUARDOG__ARGUMENTNULLEXCEPTION__H__
 
 #include "./ArgumentException.hpp"
 #include <string>
 
-#define GUARDOG_THROWIFNULL(arg) if (arg == nullptr) { \
+#define GUARDOG_THROW_IfNull(arg) if (arg == nullptr) { \
 	throw Guardog::ArgumentNullException(#arg); }
 	
 #ifndef __EXPLICIT__
-	#define THROWIFNULL(arg) GUARDOG_THROWIFNULL(arg)
+	#define THROW_IfNull(arg) GUARDOG_THROW_IfNull(arg)
 #endif
 
 namespace Guardog

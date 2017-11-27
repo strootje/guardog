@@ -19,12 +19,14 @@ class BuildPackage(ConanFile):
 
 	options = {
 		"shared": [True, False],
-		"build_tests": [True, False]
+		"build_tests": [True, False],
+		"run_tests": [True, False]
 	}
 
 	default_options = (
 		"shared=False",
-		"build_tests=False"
+		"build_tests=True",
+		"run_tests=True"
 	)
 
 	requires = (
@@ -36,11 +38,14 @@ class BuildPackage(ConanFile):
 
 	def build(self):
 		cmake = CMake(self)
-		cmake.definitions["BUILD_SHARED_LIBS"] = 'ON' if self.options["shared"] == True else 'OFF'
-		cmake.definitions["BUILD_TESTS"] = 'ON' if self.options["build_tests"] == True else 'OFF'
+		print(self.options.build_tests)
+		cmake.definitions["BUILD_SHARED_LIBS"] = 'ON' if self.options.shared == True else 'OFF'
+		cmake.definitions["BUILD_TESTS"] = 'ON' if self.options.build_tests == True else 'OFF'
 		cmake.configure()
 		cmake.build()
-		cmake.test()
+
+		if self.options.build_tests == True and self.options.run_tests == True:
+			cmake.test()
 
 	def package(self):
 		self.copy("*.hpp", dst="include/Guardog", src="include")

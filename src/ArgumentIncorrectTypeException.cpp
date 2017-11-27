@@ -11,6 +11,6 @@ namespace Guardog
 
 	const std::string ArgumentIncorrectTypeException::GetMessage() const
 	{
-		return "Argument " + _name + " is of type " + _actual + " but expected type " + _expected;
+		return ("Argument " + _name + " is of type " + _actual + " but expected type " + _expected);
 	}
 }

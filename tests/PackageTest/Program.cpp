@@ -6,7 +6,7 @@ int main( int argc, char* argv[] )
 	try
 	{
 		int* test = nullptr;
-		THROWIFNULL(test);
+		THROW_IfNull(test);
 	}
 	catch(std::exception& e)
 	{

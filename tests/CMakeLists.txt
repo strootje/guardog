@@ -9,5 +9,4 @@ if(NOT BUILD_TESTS)
 endif()
 
 # include test projects
-add_subdirectory(${BASE_DIR}/ArgumentIncorrectTypeExceptionTests)
-add_subdirectory(${BASE_DIR}/ArgumentNullExceptionTests)
+add_subdirectory(${BASE_DIR}/UnitTests)

@@ -9,6 +9,6 @@ namespace Guardog
 	
 	const std::string ArgumentNullException::GetMessage() const
 	{
-		return "Argument " + _name + " is null";
+		return ("Argument " + _name + " is null");
 	}
 }

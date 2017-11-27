@@ -7,7 +7,7 @@
 namespace Guardog
 {
 	/**
-	 * Base exception class within Guardog
+	 * Base exception class
 	 */
 	class Exception : public std::exception
 	{
@@ -17,19 +17,21 @@ namespace Guardog
 		 */
 		Exception();
 
-		/**
+		/** 
 		 * Destructor
 		 */
 		virtual ~Exception();
 
 		/**
-		 * Implementation from std::exception::what()
-		 * \returns  the message for the exception
+		 * Method used by std::exception
+		 * See std::exception::what()
+		 * \returns  The exception message
 		 */
 		const char* what() const;
 
 		/**
-		 * Returns the message for the exception
+		 * what method implemented for std::exception
+		 * \returns  The exception message
 		 */
 		virtual const std::string GetMessage() const = 0;
 	};

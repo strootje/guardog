@@ -1,5 +1,6 @@
 #include "./ArgumentIncorrectTypeException.hpp"
 #include <gtest/gtest.h>
+#include <string>
 
 class Animal {};
 class Dog : public Animal {};
@@ -17,25 +18,25 @@ TEST(ArgumentIncorrectTypeExceptionTests, ExceptionWhat_HasCorrectValue)
 	ASSERT_EQ("Argument manager is of type Dog but expected type Animal", std::string(msg));
 }
 
-TEST(ArgumentIncorrectTypeExceptionTests, THROWIFNOTBASEOF_ThrowsIfArgumentIsNotBaseOf)
+TEST(ArgumentIncorrectTypeExceptionTests, THROW_IfNotBaseOf_ThrowsIfArgumentIsNotBaseOf)
 {
 	// Arrange
 	Airplane spitfire;
 
 	// Act
-	ASSERT_THROW(THROWIFNOTBASEOF(spitfire, Animal, Airplane), Guardog::ArgumentIncorrectTypeException);
+	ASSERT_THROW(THROW_IfNotBaseOf(spitfire, Animal, Airplane), Guardog::ArgumentIncorrectTypeException);
 
 	// Assert
 	// see: act
 }
 
-TEST(ArgumentIncorrectTypeExceptionTests, THROWIFNOTBASEOF_DoesntThrowIfArgumentIsBaseOf)
+TEST(ArgumentIncorrectTypeExceptionTests, THROW_IfNotBaseOf_DoesntThrowIfArgumentIsBaseOf)
 {
 	// Arrange
 	Dog rex;
 
 	// Act
-	ASSERT_NO_THROW(THROWIFNOTBASEOF(rex, Animal, Dog));
+	ASSERT_NO_THROW(THROW_IfNotBaseOf(rex, Animal, Dog));
 
 	// Assert
 	// see: act

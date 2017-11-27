@@ -1,15 +1,15 @@
-#ifndef __GUARDOG_ARGUMENTINCORRECTTYPEEXCEPTION__H__
-#define __GUARDOG_ARGUMENTINCORRECTTYPEEXCEPTION__H__
+#ifndef __GUARDOG__ARGUMENTINCORRECTTYPEEXCEPTION__H__
+#define __GUARDOG__ARGUMENTINCORRECTTYPEEXCEPTION__H__
 
 #include "./ArgumentException.hpp"
 #include <string>
 #include <type_traits>
 
-#define GUARDOG_THROWIFNOTBASEOF(arg, expected, actual) if (!std::is_base_of<expected, actual>::value) { \
+#define GUARDOG_THROW_IfNotBaseOf(arg, expected, actual) if (!std::is_base_of<expected, actual>::value) { \
 	throw Guardog::ArgumentIncorrectTypeException(#arg, #expected, #actual); }
 
 #ifndef __EXPLICIT__
-	#define THROWIFNOTBASEOF(arg, expected, actual) GUARDOG_THROWIFNOTBASEOF(arg, expected, actual)
+	#define THROW_IfNotBaseOf(arg, expected, actual) GUARDOG_THROW_IfNotBaseOf(arg, expected, actual)
 #endif
 
 namespace Guardog
