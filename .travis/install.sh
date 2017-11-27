@@ -20,7 +20,7 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
 fi
 
 wget https://cmake.org/files/v3.10/cmake-3.10.0-Linux-x86_64.tar.gz -O cmake.tar.gz
-tar -xzf cmake.tar.gz -C /home/travis
+tar -xzf cmake.tar.gz -C $HOME
 
 pip install conan --upgrade
 pip install conan_package_tools

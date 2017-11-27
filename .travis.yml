@@ -1,6 +1,5 @@
 env:
    global:
-     - PATH: /home/travis/cmake-3.10.0-Linux-x86_64/bin:$PATH
      - CONAN_REFERENCE: "Guardog/1.0"
      - CONAN_LOGIN_USERNAME: "strootje"
      - CONAN_USERNAME: "strootje"
@@ -28,6 +27,9 @@ matrix:
 install:
   - chmod +x .travis/install.sh
   - ./.travis/install.sh
+
+before_script:
+  - export PATH=$HOME/cmake-3.10.0-Linux-x86_64/bin:$PATH
 
 script:
   - chmod +x .travis/run.sh
