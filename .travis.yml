@@ -1,5 +1,6 @@
 env:
    global:
+     - PATH: /home/travis/cmake-3.10.0-Linux-x86_64/bin:$PATH
      - CONAN_REFERENCE: "Guardog/1.0"
      - CONAN_LOGIN_USERNAME: "strootje"
      - CONAN_USERNAME: "strootje"

@@ -21,10 +21,6 @@ fi
 
 wget https://cmake.org/files/v3.10/cmake-3.10.0-Linux-x86_64.tar.gz -O cmake.tar.gz
 tar -xzf cmake.tar.gz -C /home/travis
-ls /home/travis
-ls /home/travis/cmake-3.10.0-Linux-x86_64
-ls /home/travis/cmake-3.10.0-Linux-x86_64/bin
-export PATH=/home/travis/cmake-3.10.0-Linux-x86_64/bin:$PATH
 
 pip install conan --upgrade
 pip install conan_package_tools
